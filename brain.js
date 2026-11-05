@@ -31,7 +31,10 @@
   const P_TRANSMIT = 0.42, REFRACTORY = 0.9, SPONTANEOUS = 4; // per second
 
   let nodes = [], edges = [], pulses = [], w = 0, h = 0, scale = 1, ox = 0, oy = 0;
-  let focus = null; // the open tab's region: { ux, uy, r, label, since }
+  let focus = null;
+  // the intro draws the brain much larger, so activity is drawn bigger and lasts longer there
+  let intro = false, k = 1;
+  let ripples = []; // expanding rings from clicks // the open tab's region: { ux, uy, r, label, since }
   const mouse = { x: -1e4, y: -1e4 };
   let colors = {};
 
@@ -47,10 +50,11 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     // on the intro the canvas fills the screen: keep the brain clear of the text on the left
     // (wide screens) or below it (phones); inside the side column, just center it
-    const intro = document.body.classList.contains("intro");
+    intro = document.body.classList.contains("intro");
     if (intro && w > 760) { scale = Math.min(w / 2.5, h / 1.45); ox = w * 0.62; oy = h * 0.5; }
     else if (intro) { scale = Math.min(w / 1.95, h / 1.4); ox = w * 0.5; oy = h * 0.7; }
     else { scale = Math.min(w / 1.95, h / 1.4); ox = w * 0.5; oy = h * 0.46; }
+    k = intro ? Math.max(1.4, Math.min(2.4, scale / 220)) : 1;
 
     // rejection-sample points with a minimum spacing so the shape reads evenly
     nodes = [];
@@ -89,7 +93,7 @@
         }
       }
     });
-    pulses = [];
+    pulses = []; ripples = [];
   }
 
   function fire(i) {
@@ -109,9 +113,9 @@
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
       n.rest = Math.max(0, n.rest - dt);
-      n.glow *= Math.exp(-dt * 2.6);
-      const d = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-      if (d < 80 && Math.random() < dt * 2.2 * (1 - d / 80)) fire(i);
+      n.glow *= Math.exp(-dt * (intro ? 1.7 : 2.6));
+      const reach = 80 * k, d = Math.hypot(n.x - mouse.x, n.y - mouse.y);
+      if (d < reach && Math.random() < dt * (intro ? 4 : 2.2) * (1 - d / reach)) fire(i);
     }
 
     pulses = pulses.filter(p => {
@@ -119,6 +123,7 @@
       if (p.t >= p.dur) { fire(p.b); return false; }
       return true;
     });
+    ripples = ripples.filter(r => (r.t += dt) < 0.9);
   }
 
   function draw() {
@@ -129,7 +134,7 @@
     for (const [i, j] of edges) { ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); }
     ctx.stroke();
 
-    ctx.strokeStyle = colors.accent; ctx.globalAlpha = 0.55; ctx.lineWidth = 1;
+    ctx.strokeStyle = colors.accent; ctx.globalAlpha = intro ? 0.85 : 0.55; ctx.lineWidth = intro ? 1.1 * k : 1;
     ctx.beginPath();
     for (const p of pulses) {
       const a = nodes[p.a], b = nodes[p.b], f = p.t / p.dur, g = Math.max(0, f - 0.35);
@@ -138,12 +143,27 @@
     }
     ctx.stroke();
 
+    // soft halo behind recently fired cells
+    ctx.fillStyle = colors.accent;
+    for (const n of nodes) {
+      if (n.glow < 0.12) continue;
+      ctx.globalAlpha = (intro ? 0.22 : 0.12) * n.glow;
+      ctx.beginPath(); ctx.arc(n.x, n.y, (4 + 9 * n.glow) * k, 0, Math.PI * 2); ctx.fill();
+    }
+
+    ctx.strokeStyle = colors.accent; ctx.lineWidth = 1.2;
+    for (const r of ripples) {
+      const f = r.t / 0.9;
+      ctx.globalAlpha = 0.5 * (1 - f);
+      ctx.beginPath(); ctx.arc(r.x, r.y, r.r * (0.3 + 1.2 * f), 0, Math.PI * 2); ctx.stroke();
+    }
+
     const inFocus = n => focus && Math.hypot(n.ux - focus.ux, n.uy - focus.uy) < focus.r;
     for (const n of nodes) {
       const lit = inFocus(n);
       ctx.globalAlpha = lit ? Math.max(0.8, n.glow) : 0.28 + 0.72 * n.glow;
       ctx.fillStyle = lit || n.glow > 0.08 ? colors.accent : colors.ink;
-      ctx.beginPath(); ctx.arc(n.x, n.y, (lit ? 1.9 : 1.3) + 1.6 * n.glow, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(n.x, n.y, ((lit ? 1.9 : 1.3) + 1.8 * n.glow) * k, 0, Math.PI * 2); ctx.fill();
     }
     if (focus) drawRing();
     ctx.globalAlpha = 1;
@@ -177,7 +197,9 @@
   canvas.addEventListener("pointerleave", () => { mouse.x = mouse.y = -1e4; });
   canvas.addEventListener("pointerdown", e => {
     setMouse(e);
-    nodes.forEach((n, i) => { if (Math.hypot(n.x - mouse.x, n.y - mouse.y) < 45) fire(i); });
+    const r = 45 * k;
+    nodes.forEach((n, i) => { if (Math.hypot(n.x - mouse.x, n.y - mouse.y) < r) fire(i); });
+    if (!still) ripples.push({ x: mouse.x, y: mouse.y, r, t: 0 });
   });
 
   // re-lay out for the canvas's current box; skips work if the size hasn't actually changed
