@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sreekar Baddepudi</title>
 <meta name="description" content="Sreekar Baddepudi. Neuroscience and machine learning research on speech, aphasia and neuroimaging.">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <div class="page">
@@ -31,104 +31,202 @@
     <span class="region mono">Broca's area · speech and language</span>
     <h2>Research</h2>
 
-    <div class="item">
-      <h3>Stanford Speech and Social Neuroscience Lab</h3>
-      <div class="meta">Student intern · Oct 2025 – present</div>
+    <details class="item">
+      <summary><span><b>Stanford Speech and Social Neuroscience Lab</b></span><span class="meta">Student intern · Oct 2025 – present</span></summary>
       <ul>
         <li>Developing the Functional Connectivity Index, a speech-based diagnostic measure meant to generalize across populations and neurological disorders.</li>
         <li>Building a multimodal pipeline that fuses audio and transcript features to predict clinical scores (ADOS, CASL), checked with canonical correlation analysis and ablations.</li>
         <li>Recruiting and interviewing participants, building the REDCap data pipeline, and writing IRB protocols and grant proposals.</li>
       </ul>
-    </div>
+    </details>
 
-    <div class="item">
-      <h3>UCSF NeuroAI Lab</h3>
-      <div class="meta">RISE program intern (1 of 20) · Jun 2025 – Jan 2026</div>
+    <details class="item">
+      <summary><span><b>UCSF NeuroAI Lab</b></span><span class="meta">RISE program intern (1 of 20) · Jun 2025 – Jan 2026</span></summary>
       <ul>
         <li>Trained a CLIP-style contrastive model aligning clinical notes with MRI embeddings to separate primary progressive aphasia variants (0.78 mean AUC vs. 0.69 for MRI alone). <a href="https://github.com/Sreekar0919/ppa-multimodal-clip">code</a></li>
         <li>Contributed to MAC Copilot, the Memory and Aging Center's agentic system for multimodal diagnosis, and helped test vCDR, a patient-onboarding voice agent.</li>
         <li>Shadowed clinicians in the Departments of Neurology and Radiology.</li>
       </ul>
-    </div>
+    </details>
 
-    <div class="item">
-      <h3>Boston University, Center for Brain Recovery</h3>
-      <div class="meta">Visiting research assistant · May 2024 – Oct 2025</div>
+    <details class="item">
+      <summary><span><b>Boston University, Center for Brain Recovery</b></span><span class="meta">Visiting research assistant · May 2024 – Oct 2025</span></summary>
       <ul>
         <li>Built a prompt-engineered LLM framework (Claude 3.5 Sonnet) that classifies aphasia type and estimates WAB-AQ severity. On 61 AphasiaBank spontaneous-speech samples: 85.25% classification accuracy and R² = 0.91 (RMSE 5.42); 100% on both for 6 BU patients with full diagnostic test data. First-author paper with Swathi Kiran in progress. <a href="https://github.com/Sreekar0919/AphasiaLLMDiagnosticTool">code</a></li>
         <li>Wrote neuroimaging pipelines and functional connectivity analyses linking clinical measures to brain structure. <a href="https://github.com/Sreekar0919/fmri-language-connectivity">code</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div class="item">
-      <h3>Independent research: aphasia recovery modeling</h3>
-      <div class="meta">Apr 2023 – Apr 2025</div>
+    <details class="item">
+      <summary><span><b>Independent research: aphasia recovery modeling</b></span><span class="meta">Apr 2023 – Apr 2025</span></summary>
       <ul>
         <li>Trained a demographic-conditioned VAE that generates functional connectivity without a new fMRI scan; recovery predictions reached 13-point RMSE on the 100-point WAB-AQ, with generated connectivity contributing about 25% of predictive power. <a href="https://github.com/Sreekar0919/aphasia-neuroimaging-ml">code</a></li>
         <li>Applied language models to aphasic speech across languages to map how symptoms vary.</li>
       </ul>
-    </div>
+    </details>
 
-    <div class="item">
-      <h3>San José State University</h3>
-      <div class="meta">Research intern · Aug – Dec 2023</div>
+    <details class="item">
+      <summary><span><b>San José State University</b></span><span class="meta">Research intern · Aug – Dec 2023</span></summary>
       <ul><li>Designed and ran an EEG experiment (n = 20) on polyrhythmic music and attention.</li></ul>
-    </div>
+    </details>
   </section>
 
   <section role="tabpanel" id="p-projects" aria-labelledby="t-projects" hidden>
     <span class="region mono">prefrontal cortex · planning and building</span>
     <h2>Projects</h2>
-    <ul class="projects">
-      <li><a href="https://github.com/Sreekar0919/casl-analysis-tool">CASL analysis tool</a> <span>— speech-language analysis for SLPs; used by 12 SLPs across 12 high schools in my district.</span></li>
-      <li><a href="https://github.com/Sreekar0919/inclusiveworld-tutor">InclusiveWorld tutor</a> <span>— Python curriculum and RAG tutor for neurodivergent students, used by 40+ students.</span></li>
-      <li><a href="https://github.com/Sreekar0919/pubmed-clinical-evidence-agent">PubMed evidence agent</a> <span>— checks the claims in a clinical note against the literature.</span></li>
-      <li><a href="https://github.com/Sreekar0919/atrophy-zscore-predictor">Atrophy z-score predictor</a> <span>— predicting regional brain atrophy from clinical notes.</span></li>
-      <li><a href="https://github.com/Sreekar0919/evolnn">Neuroevolution</a> <span>— from-scratch networks evolved to drive simulated cars with ray-cast sensors.</span></li>
-      <li><a href="https://github.com/Sreekar0919/dermnet-skin-classifier">DermNet classifier</a> <span>— skin-condition classification, 65.6% top-1 over 23 classes.</span></li>
-      <li><a href="https://github.com/Sreekar0919/alpha-synuclein-drug-discovery">Alpha-synuclein docking</a> <span>— a docking pipeline and an honest look at why it fails.</span></li>
-      <li><a href="https://github.com/Sreekar0919/senate-trades">Senate trades</a> and <a href="https://github.com/Sreekar0919/wsb-sentiment-trader">WSB sentiment</a> <span>— two trading-signal experiments.</span></li>
-    </ul>
+
+    <details class="item">
+      <summary><span><b>AtHomeSLP</b></span><span class="meta">Next.js · Supabase · OpenAI Realtime · Claude</span></summary>
+      <p>Conversation practice at home for kids working on social communication. Students talk out loud with Pip, an animated AI conversation partner; a speech-language pathologist sets the goals, reviews every session, and does all of the scoring. Includes turn-level coding, AI-drafted SOAP notes the SLP edits and signs, progress tracking, and interrater reliability. Code is private for now.</p>
+    </details>
+    <details class="item">
+      <summary><span><b>CASL analysis tool</b></span><span class="meta">used by 12 SLPs in my district</span></summary>
+      <p>Speech-language analysis for SLPs: transcription, language-sample metrics, and an LLM-drafted analysis the clinician reviews. Rolled out across 12 high schools serving 750+ students in speech therapy. <a href="https://github.com/Sreekar0919/casl-analysis-tool">code</a></p>
+    </details>
+    <details class="item">
+      <summary><span><b>InclusiveWorld tutor</b></span><span class="meta">used by 40+ students</span></summary>
+      <p>Python curriculum and a RAG tutor for neurodivergent students: chat grounded in the lesson slides, practice problems themed around each student's interests, and a debugging coach. <a href="https://github.com/Sreekar0919/inclusiveworld-tutor">code</a></p>
+    </details>
+    <details class="item">
+      <summary><span><b>PubMed evidence agent</b></span></summary>
+      <p>Checks the claims in a clinical note against the literature: extracts the claims, writes PubMed queries through tool calls, and grades the evidence. <a href="https://github.com/Sreekar0919/pubmed-clinical-evidence-agent">code</a></p>
+    </details>
+    <details class="item">
+      <summary><span><b>Atrophy z-score predictor</b></span></summary>
+      <p>Predicting regional brain atrophy from clinical notes with an LLM, compared against MRI-derived z-scores. <a href="https://github.com/Sreekar0919/atrophy-zscore-predictor">code</a></p>
+    </details>
+    <details class="item">
+      <summary><span><b>Neuroevolution</b></span></summary>
+      <p>From-scratch neural networks evolved, with no gradient descent, to drive simulated cars using ray-cast sensors. <a href="https://github.com/Sreekar0919/evolnn">code</a></p>
+    </details>
+    <details class="item">
+      <summary><span><b>Senate trades &amp; WSB sentiment</b></span></summary>
+      <p>Two trading-signal experiments: a multi-agent system that scores senators' stock disclosures by committee oversight, and an r/wallstreetbets sentiment-plus-momentum strategy. <a href="https://github.com/Sreekar0919/senate-trades">senate</a> · <a href="https://github.com/Sreekar0919/wsb-sentiment-trader">wsb</a></p>
+    </details>
   </section>
 
   <section role="tabpanel" id="p-music" aria-labelledby="t-music" hidden>
     <span class="region mono">auditory cortex · sound</span>
     <h2>Music</h2>
-    <div class="item">
-      <h3>Trumpet</h3>
-      <div class="meta">2022 – 2026 · section leader senior year</div>
+
+    <div class="trumpet" id="trumpet" tabindex="0" aria-label="Playable trumpet. Toggle valves, then hold the mouthpiece to play. Keyboard: 1, 2, 3 for valves, space to play.">
+      <div class="valves">
+        <button class="valve" aria-pressed="false">1</button>
+        <button class="valve" aria-pressed="false">2</button>
+        <button class="valve" aria-pressed="false">3</button>
+      </div>
+      <button class="blow">hold to play</button>
+      <span class="note mono" aria-live="polite"></span>
+    </div>
+    <p class="mono fingering">real fingerings: none, then 2, 1, 1+2, 2+3, 1+3, 1+2+3 plays a descending scale</p>
+
+    <details class="item">
+      <summary><span><b>Trumpet</b></span><span class="meta">2022 – 2026 · section leader senior year</span></summary>
       <ul>
         <li>County Honor Band.</li>
         <li>First trumpet in the Wind Ensemble, Philharmonic Orchestra and Jazz Club.</li>
         <li>Performed at Boston Symphony Hall with the Boston Instrumental Festival.</li>
       </ul>
-    </div>
-    <div class="item">
-      <h3>Music and attention</h3>
-      <div class="meta">San José State University · 2023</div>
+    </details>
+    <details class="item">
+      <summary><span><b>Music and attention</b></span><span class="meta">San José State University · 2023</span></summary>
       <ul><li>An EEG experiment (n = 20, ages 15–55) on how polyrhythmic music affects attention span.</li></ul>
-    </div>
+    </details>
   </section>
 
   <section role="tabpanel" id="p-writing" aria-labelledby="t-writing" hidden>
     <span class="region mono">hippocampus · memory</span>
     <h2>Writing</h2>
-    <p>Mostly short memoir. Two Scholastic Gold Keys for personal essay and memoir (2024), and top 15% in the New York Times 100-Word Memoir contest.</p>
-
-    <div class="memoir">
+    <details class="piece">
+      <summary><span>Missed Opportunity</span><span class="mono">511 words</span></summary>
       <p>The sky bruised red, the kind of red that stings. And I just sat. My screen flickered with muted classmates. My parents ripped apart the house, stuffing jeans, cramming socks, tossing our mundane lives into suitcases. What about my Legos? Our grandfather clock, unticking? Would it all burn? I didn't move. Didn't breathe. The fire licked its lips, devouring faded golds and muted browns of the Diablo Range.</p>
       <p>Then, the inferno retreated, granting a reprieve. The smoke dissipated, threads dissolving into pale sky. Pandemic rhythms resumed their monotone pulse.</p>
       <p>My seven-year-old sister split the quiet: "I wanted to go to a hotel!"</p>
-    </div>
-
-    <div class="item">
-      <h3>For the Birds</h3>
-      <div class="meta">After a fight with my mom, a mockingbird family nests in our pomelo tree, and I start getting up at 3 a.m. to guard it.</div>
-    </div>
-    <div class="item">
-      <h3>Sheared Solidarity</h3>
-      <div class="meta">My grandfather vows to shave his head if my dad recovers, and I try to square that with what I believe about science.</div>
-    </div>
+      <h4>Artist's statement</h4>
+      <p>My sister's voice—sharp, unexpected—became the punchline to our family's near-disaster. "I wanted to go to a hotel!" The words hung in the air after hours of quiet panic, after orange light burned in our windows, after my parents packed and repacked emergency bags.</p>
+      <p>Those seven words transformed everything.</p>
+      <p>It felt like one apocalypse after another. During the pandemic, my experience of school was surreal, but also boring. Sometimes it felt as if the earth itself was yawning. The sounds of my class seemed to come out of the screen, reverberate within my dome, and exit.</p>
+      <p>My desk, which sat in front of my eastward facing window, was illuminated a bright orange. My first thought was that I had woken up during sunrise. But this was not sunrise. In fact, I couldn't see the sun. The California wildfires were just over the Diablo Range and our house was at the foothills on the other side.</p>
+      <p>Stress had been our language that morning. My mother's urgent phone calls. My father's semi-methodical movements. My own digital jail cell, a Zoom class frozen behind me. But her unfiltered and unbridled disappointment cut through it all.</p>
+      <p>In the end, it seemed like all that stress was for nothing. The fire receded and it was deemed safe for us to stay at home. While my parents and I viewed this as a sigh of relief, if not a waste of time and energy, my sister was despondent. Her dreams of leaving the confines of our house were shattered.</p>
+      <p>Trauma sits differently based on where you are. For my sister, the potential fire was an adventure interrupted. A chance for a hotel stay. Just over the hill, quite literally, was a chance to have free pancakes every day and swim in the hotel pool. While we calculated risks, she calculated potential excitement.</p>
+      <p>Now, years later, that quote remains our family's shorthand. A reminder that perspective is everything. That stress can transform. That survival sometimes looks like unexpected humor.</p>
+      <p>When we retell the story, we always pause at her quote. Always laugh. The orange sky fades. The packed bags become a footnote. What remains is her voice—clear, unbroken—demanding something as mundane as a hotel stay in the midst of potential catastrophe.</p>
+      <p>Memory isn't about the big moments. It's about these tiny, perfect interruptions. Where fear feels freeing. Where stress becomes a shared joke.</p>
+      <p>I wanted to go to a hotel.</p>
+      <p>Seven words. An entire world.</p>
+    </details>
+    <details class="piece">
+      <summary><span>For the Birds</span><span class="mono">2,402 words</span></summary>
+      <p>“You're not raising me, you're just trying to fix your mistakes through me!” I yelled, my voice cracking with the weight of all my pent-up frustration.</p>
+      <p>My mom's eyes widened, her mouth opened like she was going to say something, but no sound came out. She stood there frozen, her hands twitching by her sides, and then, without a word, she turned and walked out, shutting the door softly behind her.</p>
+      <p>There was no sound, only a faint ringing in my ears, slowly growing, the kind that comes with uncomfortable silence. I’d gone too far, and I knew it. Palms sweaty, throat tight, I tried to muster up the courage to apologize. But when I went to her room later that night, I stopped at the door. Her lips were drawn into a thin, rigid line, unspeaking, as I stood in the doorway, also silent. After a long moment, I turned and retreated to my room. There, I tossed and turned for hours in the darkness, finally deciding to move to the guest bedroom downstairs, but guilt stepped on the backs of my heels all the way down the hallway.</p>
+      <p>I curled myself inside my blanket in the guest room, but couldn't escape the sounds of the back yard: wind’s gentle murmurs, tree branches scratching at the window pane, coyotes howling in the distance. Caught in the endless loop of recounting the events of the day, though, I slowly drifted off to sleep. Then, one noise emerged unexpectedly before the break of dawn: a muffled meow, slicing through the darkness.</p>
+      <p>I turned over in my bed, my hands flailing for my phone.</p>
+      <p>3 A.M.</p>
+      <p>"It's nothing," I muttered to myself, burrowing back under the covers.</p>
+      <p>“Meow.”</p>
+      <p>3:04 A.M.</p>
+      <p>Now a little more spatially aware, I flopped out of bed. I shone my phone's flashlight out the kitchen window and located the cat whose neon eyes beheld our majestic pomelo tree. In daylight, you could see how it was hung with huge citrus, but right now it was ghostly in the darkness. I dashed outside to see what the cat was hunting, startling it as the door closed behind me. There was something besides citrus in that tree.</p>
+      <p>As I found myself standing under the tree, a wave of memories from more leisurely times began to visit me. Practicing my behind-the-back three-pointers on our worn-down basketball hoop, racing through the obstacle courses that my sister designed so only she could win, and planting seeds with my grandmother. I had barely set foot in the backyard since high school had started. I scanned the fruit trees in my backyard, now notably taller and denser than I had remembered. That’s when I saw it. Hidden deep in the branches of the pomelo tree was a nest. I couldn’t believe I hadn’t noticed it before. It was the first time a bird had built a nest in our backyard! Considering this enough action for the ungodly hour of 3 a.m., I returned to my room, wondering what birdbrain had built this structure.</p>
+      <p>Once the sun was out, I made my way to the backyard to try to catch a glimpse of the skilled nest builder. Perched atop the roof, a slender gray-white bird with a long tail was diligently monitoring the nest. A quick internet search revealed the species of the bird: The northern mockingbird is a mockingbird commonly found in North America, of the family Mimidae. The species is also found in some parts of the Caribbean, as well as on the Hawaiian Islands.</p>
+      <p>Craning my neck around, I tried to sneak a glance of what was in the little nursery but nestled deep in the branch, the nest was barely visible. Since mockingbirds always work in pairs, I swiftly scurried back to the house, avoiding a peck on the head from its counterpart. Before long, the second mockingbird swooped down, a streak of soft gray slicing through the sunlight. It didn’t just land—it seemed to hover for a moment as the wings made tiny, deliberate shifts before it touched the ground as lightly as a falling leaf. Once there, it moved with a nervous sort of efficiency, every hop purposeful, its beak stabbing into the grass in sharp, precise jabs. The way it tilted its head, one eye scanning its surroundings while the other stayed focused on the ground, made it seem like it was always a half-step ahead of something unseen.</p>
+      <p>As I watched from the window, I found myself holding my breath, drawn in by the way its movements seemed to hold tension and release all at once, like it was caught in a rhythm only it could hear. As I kept watch, a sense of responsibility began to stir. I felt oddly protective of these birds.</p>
+      <p class="break">* * *</p>
+      <p>I set my alarm for 3 a.m., waking to stand guard every morning. Despite my body's protests, I would stumble to the window, peering out into the inky blackness. Sometimes I’d hear meows, and I’d run out, flashlight in hand, to scare off any lurking predators. Other nights, there was not much other than the leaves rustling as the wind blew past, but I stayed awake anyway, listening, waiting.</p>
+      <p>Nighttime bird duties, followed by school, were beginning to drain me, making me drowsy by afternoon. As I lay tired on my bed, my sister's excited cry suddenly pierced the air. "Come quick! Something's happening in the nest!" she exclaimed. Jolted awake, I quickly joined her at the window, peering out to the tree just outside. At first, I saw nothing unusual - just the familiar mockingbird nest tucked among the branches. But then, a subtle movement caught my eye. Leaning in closer, I noticed three tiny feathered heads peeking up from the nest, their beaks open wide.</p>
+      <p>Suddenly, one of the parent birds landed on the edge of the nest, a small insect grasped in its beak. With a few quick movements, it delicately dropped the morsel directly into the awaiting mouth of one of the babies. The chick's throat visibly bulged as it swallowed the offering, its siblings craning their necks, eager for their turn. Again and again, the devoted mockingbird parents took turns arriving with food, carefully distributing it among their newborn brood. I watched, transfixed, as this intimate display of avian parenting unfolded before my eyes - a true wonder of the natural world that I had nearly missed in my weariness.</p>
+      <p>Six days had passed without having a direct conversation with my mom. A part of me was now simmering with anger at her unwillingness to end this conflict. While I desperately wanted to make peace with my mom, I still hesitated to initiate the discussion. I was hurt that she had not reached out yet. I had felt her eyes on me as I dragged my backpack out of the car, barely able to make it from the driveway to the door. I could tell that she wanted to reach out, tell me to stop exhausting myself. I wanted to make peace with my mom but why did I always have to be the one to reach out?</p>
+      <p>I thought about the countless times she’d orchestrated my life. Was this silence her way of giving me space? I could almost picture her, sitting in her room, wrestling with her own thoughts, wanting to reach out but held back by fear—fear of making things worse, fear of opening wounds that still felt raw.</p>
+      <p>I sat with the thought, letting it unfurl in the quiet. What if she didn’t know how to apologize? I’d always seen her as the unshakable one, the authority figure who set the rules and rarely bent to meet me in the middle. But what if she wasn’t unshakable? What if she’d just learned to hide the cracks, to keep herself from shattering under the weight of her own struggles?</p>
+      <p>It struck me quietly - the realization that she carried a history deeper than what I could see. Her life existed in layers I'd never fully comprehend, with silent narratives tucked between her careful gestures. I wondered about the unspoken moments: the conversations she might have rehearsed but never said, the dreams she'd quietly folded away.</p>
+      <p>The idea softened something in me. I’d been so focused on the gap between us—so sure it was her fault for not closing it—that I hadn’t thought about how scary it must be to try. To risk rejection from your own child. Maybe she wanted to reach out, but the words felt just as clumsy in her mouth as they did in mine.</p>
+      <p>The thought hit me like a cold wind: maybe she needed me to make the first move.</p>
+      <p>It wasn’t fair, part of me argued. I was a kid. She was supposed to know how to fix this. But another part of me, quieter and wiser, whispered back: But don’t you want to try?</p>
+      <p class="break">* * *</p>
+      <p>The nest became my obsession, my raison d'être. I erected defenses against the feline menace, my nights a fitful vigil, attuned to every rustle and whisper. The line between observer and participant blurred, as I found myself not just watching, but nurturing, guiding, protecting. I set my internal rhythm to match the pulse of the nest. I wasn’t about to let that cat get to them. I planted a small garden around the base of the tree, hoping to attract insects for the birds to feed their babies. After spending countless hours on some of the most bizarre forums the internet has to offer, I even installed an ultrasound sensor on the fence to deter the neighborhood cats. Someone online had suggested spreading paprika around to keep cats away, so I did that too, no matter how silly it sounded, carefully dusting the ground around the tree with bright red powder. I felt like a guardian, constantly checking to make sure nothing would hurt my birds, even if that meant “doing too much”.</p>
+      <p>I found forums about the best food for birds and even one's dedicated to dressing your bird in a tuxedo. Eventually, I stumbled onto forums talking about their birds' milestones.</p>
+      <p>“My bird hatched in only 8 days.”</p>
+      <p>“Oh yeah? Mine did it in just 7.”</p>
+      <p>“Well, my bird started flying after only 9 days. Beat that!”</p>
+      <p>I couldn’t help but wonder whether my birds were on schedule. I meticulously kept track of as many milestones as I could, making notes about their development and eagerly checking for signs of progress. I created a little chart, marking each day with colored stickers for hatching, feather growth, and flying attempts. Each time I spotted a new change—like the tiniest hint of feathers sprouting or a brief flap of wings—I felt a rush of excitement. I compared my notes with those forum posts, feeling a mix of anxiety and determination to ensure my birds were not just on track, but ahead of schedule. I was invested in their journey, just like I imagined those other bird owners were with theirs.</p>
+      <p>Maybe independence wasn’t about walking away from her. Maybe it was about seeing her as human, figuring things out, just like me. If I could make space for her humanity, maybe she could make space for mine. While my mom’s silence felt like abandonment, it might also be an invitation. An invitation to understand that our relationship, like the mockingbirds’ nurturing, required both closeness and distance. What if this was her way of showing love?</p>
+      <p>I stood up, the weight in my chest lighter somehow. I didn’t know what I’d say or how she’d react. But I’d make the first move, even if it was just a step.</p>
+      <p>One morning, just as any other, as the world slumbered, I rose to the call of duty, a silent sentinel standing watch over the fragile lives that hung in the balance. This morning though, I stood by. When they teetered over the edge of the nest, ready for their first attempt at flight, my heart was practically in my throat, pounding with the fear that they might fall, but bursting with the hope that they would soar. What would happen to them if I was not there to guide them and give them direction? What would happen if they failed?</p>
+      <p>As I stood there, frozen with anticipation, I realized how much I had invested in these little creatures. I watched as the first fledgling spread its wings, hesitating, testing the air. For a moment, the world narrowed down to that single moment of suspended tension. And then, it wobbled, flapping erratically before falling onto a lower branch. I felt a bittersweet ache in my chest as I realized that they were no longer entirely mine to protect. One by one, the fledglings repeated the ritual, each struggling to find their balance, but each succeeding in their own way. Occasionally, one would misjudge a step, its wings flapping frantically as it teetered on the edge, nearly losing its footing. But with a few hurried flaps, the fledgling would regain its equilibrium, settling back down with a soft chirp. Others seemed more confident, their wing beats stronger and more assured as they moved across the perch. They'd stretch out their wings, testing the air currents, then tuck them back in as they took another step forward. I wanted to reach out, to guide them, to steady their wings—but I knew I couldn’t.</p>
+      <p>As I watched the fledglings, I saw myself in their awkward, determined attempts. They were both young and old – fragile, yet resilient. Their bare skin and unfocused eyes reminded me of a wise old man, but their relentless spirit echoed my own adolescent determination. I realized then that we were all learning to fly in our own ways. The birds instinctively knew what to do, even if they stumbled. And me? I was stumbling too, trying to navigate the complexities of growing up, of relationships, of forgiveness. That night, I lay awake, thinking about the fledglings and about my mom. We'd been distant lately, each of us retreating to our own branches. But maybe, like those baby birds, I needed to take a leap.</p>
+      <p class="break">* * *</p>
+      <p>Before school that morning, I knocked on my mom’s bedroom door. As the door slowly opened, I stepped forward, not looking at her face, and hugged her. She stiffened at first, then slowly, cautiously, her arms wrapped around me.</p>
+      <p>“I’m sorry,” I whispered.</p>
+    </details>
+    <details class="piece">
+      <summary><span>Sheared Solidarity</span><span class="mono">2,030 words</span></summary>
+      <p>“Are you really giving up gulab jamuns for life?” My voice cracked in disbelief as Aunt Usha waved away the syrupy delights. During our annual Diwali family reunion, Aunt Usha declared that she had forever forsaken her favorite indulgence. Was this the same person who could write a dissertation on how gulab jamuns could substitute for vegetables? Puzzled, I plodded over to the kitchen to ask my mother what forsaken forever meant. She explained it was my aunt’s way of paying obeisance to the Lord - sacrificing something deeply enjoyed to pay respects for divine favors bestowed. My rational 11-year-old brain, trained to trust in science, wasn’t satisfied with her answer– I wondered how did trading worldly possessions for divine favor prove itself when, in my mind, the very existence of God remained questionable?</p>
+      <p>From our weekly darshanam (temple visit) to the warm scent of saffron in our lunches, I had always felt immersed in my Indian heritage, but still, the concept of giving up one’s pleasure as a bargain with the gods was foreign to me. Was this just blind faith or some esoteric spiritual understanding? I desperately wanted to learn my parents' stance on the so-called tradition but feared being perceived as an overly Americanized “coconut” - brown on the outside, but culturally white on the inside.</p>
+      <p>Seeing my parents settle down for the night, I tucked into my mom’s floral quilt and stated quite bluntly, “Hope we don’t have a tradition of giving up things we love.” Her smile arrived like a whisper - not soft, but weighted. It was the kind of expression that seemed to hold multiple conversations at once: part memory, part wisdom, a fleeting landscape of understanding that didn't quite reach her eyes but settled instead in the subtle shift of her cheekbones. “Relinquishing things or foods you like is an honor to the divine, a timeless tradition in our family.”</p>
+      <p>My dad, who had been listening, broke the silence with a story that hung between jest and gravitas. His grin stretched, but there was something else underneath - a thin layer of something more complicated than humor. "Ask me about the time I had to sacrifice my luscious locks of hair to obey our family tradition." His fingers unconsciously traced the line of his scalp, a muscle memory of that promise.</p>
+      <p>“My father vowed” he went on, “to shave my head, and not his, if I made it to the IIT.” The words landed differently now - not a joke, but a ledger of ambition, a transaction etched into family mythology. The IIT admission wasn't an achievement so much as a borderland crossed, a territory claimed through calculated risk. I felt the mathematics of it in my own bones: the narrow corridor between possibility and failure, the precise geometry of ambition.</p>
+      <p>“And did you?’ I asked, clutching my own curls.</p>
+      <p>“I was the envy of every Bollywood hero with my flowing mane, and then poof! On the first day, I landed at IIT with a freshly shaven head, and it earned me the nickname ‘Tandy.’” Tandy was a notorious criminal who attempted to dispose of his wife’s body in a tandoor . “A little dark, I know.”</p>
+      <p>“I was the talk of the campus, but not in the way I had hoped," my dad chuckled. I sat there, my small body coiled tight with defiance. Dad's story hung in the air, a warning and a challenge. My grandfather's vow had dragged my dad through something he clearly didn't choose—and in that moment, something deep within me stirred. This wasn't going to be my story. I wasn't going to be trapped by some old tradition from long before I was born. Not a chance!</p>
+      <p class="break">* * *</p>
+      <p>It was the third week of 2020, and my 7-year-old sister, six years younger, and I were feverishly planning for my mom’s milestone, the big 4-0 birthday. Our creative minds were brimming with whimsical ideas, each one more outlandish than the last. Just then, my mom, her tone somber, summoned me into her room. There, my dad lay on the bed. My mom said to me gently, “Your dad has polyps in his bladder.” I was puzzled and exclaimed, “Polyps? Like coral reefs? How’d they get there?” I giggled at my own witty remark, but as the silence rolled around me, my joke dissolved. My body knew before my brain. A suffocation, but not around the lungs. My forehead scrunched up, my arms and legs constricted. I didn’t feel like standing there anymore. I just wanted to go back to my sister.</p>
+      <p>My mom's voice trembled as she explained that my father had been diagnosed with stage-1 bladder cancer and that the next day he would be going in for surgery. Her face was wet with tears now, as she looked at my dad while his eyes were working to comfort us. I stood frozen. Right then, my little sister barged into the room, ready to pull me back into her tent, oblivious. Despite trying to shake it off in front of my sister, my voice frayed every time I spoke, with that moment playing over and over. How could my father fall into the clutches of cancer?</p>
+      <p>Continents away from us, my grandparents' devastation was revealed in a WhatsApp call, somehow simultaneously intimate and impossibly distant. The COVID travel ban—that bureaucratic membrane separating continents and families—had transformed their helplessness into ritualistic gestures.</p>
+      <p>During that WhatsApp call, my tatha, with unwavering conviction, declared that he would shave his head. He insisted this was in accordance with our age-old tradition and that it would lead to my dad emerging cancer-free. My tatha, that bastion of generational wisdom, proclaimed his intention to shave his head with a conviction that transcended mere physical action. His declaration hung in the virtual space between us. "This is our tradition," he stated—not as a request, but as a truth that predated and would outlive contemporary medical diagnostics.</p>
+      <p>People were already talking about head-shaving while my own head was spinning with the news. I almost couldn't believe it. How was that going to make any difference to my father's situation? Perplexed, I asked how a doctor could justify the belief that shaving one's head could actually help defeat cancerous cells. My grandfather with typical aplomb said, "Our traditional values and culture are built on faith, philosophy, and science. Modern science doesn't invalidate age-old practices and beliefs." It struck me that this wasn't the right moment to argue further. I nodded, but the gesture felt hollow. As I walked down the hall to my room, I couldn't help but feel a growing sense of frustration. It seemed like everyone around me was clinging to these ancient traditions and beliefs, desperate for a sense of control in a world that felt so chaotic and unpredictable.</p>
+      <p>Later that night, I found myself sitting with my mom, still confused by my grandfather’s words. I hesitantly asked, “How can.. an offering …decide Dad’s fate?” She smiled, but it wasn't her usual warm, comforting smile. There was a distant look in her eyes, as if she was seeing something beyond the present moment. "There is no science that links sacrifice to destiny," she said softly. "Whatever is meant to happen will happen. Your tatha's act of tonsure is a symbolic way of showing support to his son."</p>
+      <p>I felt a flicker of irritation at her words, at the way she seemed to accept this reasoning so easily. "But how can shaving his head actually help Dad?" I pressed, my voice rising slightly. "It doesn't make any sense."</p>
+      <p>She said, “Tatha wanted to share the burden we all carry, and let us know that we are all in this together, collective in our determination to overcome adversity.” Trying to process her words, I walked down the hall to my room. The weight of the situation hung heavy on my shoulders, and I couldn't help but wonder about the countless things people put their faith in, desperate for a sense of control in a world that often felt so chaotic.</p>
+      <p>As I lay in bed, staring at the ceiling, my mind wandered to the countless stories I'd heard over the years - of miraculous healings, of prayers answered, of destinies changed by acts of devotion. But in that moment, those stories felt distant, like tales from another world. I thought about my grandfather, his unwavering belief in the power of tradition, and I envied his certainty. For him, the act of shaving his head was a tangible way to show his love and support, to share the burden we all carried. But for me, the path forward was less clear.</p>
+      <p>The surgery and the subsequent rounds of chemotherapy spanning several months took a toll on my dad’s strength but his spirit remained strong. The biopsy results brought hope as my dad’s cancer was categorized as low-grade. After about eight months, the doctor announced that my dad was in remission. Once the COVID travel restrictions were lifted, my tatha wasted no time in fulfilling his vow. He visited our family temple, and offered his ultimate sacrifice, his silver locks, as a gratitude to the divine for answering his prayers.</p>
+      <p class="break">* * *</p>
+      <p>Six months into the remission, during one of Dad's routine check-ups, the doctor ordered an additional test. A surgical procedure. The spring breeze drifting through our home felt cold now. Arid. It carried none of the hope and renewal that had buoyed us when Dad first went into remission. The atmosphere in our house was already heavy, air thick with fear and sorrow. Challenging their faith now would only add to the grief crushing us.</p>
+      <p>After about a week, the doctor called with the results. I held my breath, bracing for the worst, as Mom answered with a shaking hand. But then she let out a sob, and I thought my heart would stop. Until I saw the smile breaking across her face. It was a false positive! The cancer hadn't returned. Dad was still in remission, still with us.</p>
+      <p>The relief was staggering, a physical force that left me lightheaded. Mom and Grandpa embraced, laughing and crying in equal measure, their prayers of gratitude filling the air. I slipped away to my room, needing a moment alone to process. To reconcile the overwhelming joy with the simmering anger in my gut.</p>
+      <p>I slipped away from the festivities to my room, fists clenched. We'd just endured a week of pure hell, an emotional wringer that left us all wrung out and ragged. And for what? For science, the supposed bedrock of reason and logic, to reveal its own fallibility? For our emotions to be toyed with, tossed about on the whims of an imperfect test I wanted so badly to believe in something I could hold onto, and yet the truth kept slipping through my fingers, blending into a haze. But as I listened to the sounds of celebration drifting up from downstairs, the laughter and tears and murmured prayers, I began to understand.</p>
+      <p>We would never truly know what had saved Dad. Maybe it was the treatment, the precise cocktail of drugs and radiation. Maybe it was the timing of his diagnosis, catching the cancer before it could sink its claws in too deep. Or maybe, just maybe, it was the power of our tradition, the strength of our faith and the prayers we'd lifted up to the heavens. Science, for all its marvels, was not infallible. It could make mistakes, give false hope or crushing despair. But our belief, our trust in something greater than ourselves... that had sustained us through the darkest of times. It had given us a light to cling to, a reason to keep going when all seemed lost. As I observed the genuine joy and relief on everyone's faces, I appreciated how the unshakable trust in an age-old tradition helped my family navigate through one of our biggest challenges. And that was powerful. Maybe that’s what life was—a messy intersection of science and belief, data and prayer, fear and hope. Maybe the two weren’t supposed to be at odds. Maybe, in some strange, resonant way, they needed each other.</p>
+    </details>
   </section>
 
   <section role="tabpanel" id="p-about" aria-labelledby="t-about" hidden>
@@ -139,6 +237,7 @@
       <li>Junior Science and Humanities Symposium (NorCal), first place in Medicine and Health, top 10 overall (2025)</li>
       <li>California Science &amp; Engineering Fair, second place in Behavioral Sciences (2024)</li>
       <li>Synopsys Science Fair, Grand Award alternate and two category awards (2024)</li>
+      <li>Scholastic Art &amp; Writing, two Gold Keys in personal essay and memoir (2024)</li>
       <li>Outstanding Volunteer Award, Inclusive World (2024)</li>
       <li>French Grand Concours, gold medal, top 3 nationally (2023)</li>
     </ul>
@@ -156,7 +255,7 @@
 </main>
 </div>
 
-<script src="brain.js?v=3"></script>
-<script src="site.js?v=3"></script>
+<script src="brain.js?v=4"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>
