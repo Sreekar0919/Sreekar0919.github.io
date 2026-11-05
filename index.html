@@ -4,46 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sreekar Baddepudi</title>
-<meta name="description" content="Sreekar Baddepudi. Neuroscience and machine learning research on speech, aphasia and neuroimaging.">
-<style>
-  :root { --bg: #faf9f6; --ink: #1c1c1a; --muted: #6e6c66; --rule: #e3e0d8; --accent: #b0532c; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #151514; --ink: #e8e6e1; --muted: #9a978f; --rule: #2c2b28; --accent: #e08257; }
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-         font: 17px/1.6 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
-  a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 3px; }
-  a:hover { color: var(--accent); text-decoration-color: currentColor; }
-
-  .hero { position: relative; height: 100vh; min-height: 520px; overflow: hidden; }
-  #brain { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
-  .intro { position: absolute; left: 7vw; top: 50%; transform: translateY(-50%); max-width: 22rem; pointer-events: none; }
-  .intro a { pointer-events: auto; }
-  .intro h1 { font-size: 1.7rem; font-weight: 500; margin: 0 0 .4rem; letter-spacing: -.01em; }
-  .intro p { margin: 0 0 1rem; color: var(--muted); }
-  .intro nav a { margin-right: 1rem; font-size: .95rem; }
-  .hint { position: absolute; bottom: 1.4rem; left: 7vw; font: 12px/1 ui-monospace, Menlo, monospace; color: var(--muted); }
-  @media (max-width: 760px) {
-    .intro { top: auto; bottom: 3.5rem; transform: none; }
-    .hint { bottom: 1rem; }
-  }
-
-  main { max-width: 42rem; margin: 0 auto; padding: 4rem 1.25rem 6rem; }
-  section { margin-bottom: 3.5rem; }
-  h2 { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
-       margin: 0 0 1.2rem; padding-bottom: .4rem; border-bottom: 1px solid var(--rule); }
-  .item { margin-bottom: 1.6rem; }
-  .item h3 { font-size: 1rem; font-weight: 600; margin: 0; }
-  .meta { color: var(--muted); font-size: .9rem; margin: .1rem 0 .4rem; }
-  ul { margin: .3rem 0 0; padding-left: 1.1rem; }
-  li { margin-bottom: .25rem; }
-  .projects li { list-style: none; margin-left: -1.1rem; margin-bottom: .6rem; }
-  .projects span { color: var(--muted); }
-  .plain { list-style: none; padding: 0; }
-  footer { color: var(--muted); font-size: .85rem; }
-</style>
+<meta name="description" content="Sreekar Baddepudi: speech and brain research, trumpet, writing, and things I've built.">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -51,98 +13,171 @@
   <canvas id="brain" aria-label="Animated network of neurons in the shape of a brain"></canvas>
   <div class="intro">
     <h1>Sreekar Baddepudi</h1>
-    <p>Symbolic Systems (Neuroscience) at Stanford. I work on speech, aphasia and brain imaging, mostly with machine learning.</p>
-    <nav><a href="#research">Research</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+    <p>Neuroscience at Stanford. This is a map of what I spend my time on, filed under the part of the brain that does it.</p>
+    <ul class="regions">
+      <li><a href="#speech" data-region="-0.45,-0.02"><span class="label">Broca's area</span><span>speech research</span></a></li>
+      <li><a href="#sound" data-region="-0.02,0.2"><span class="label">auditory cortex</span><span>trumpet</span></a></li>
+      <li><a href="#memory" data-region="-0.2,0.3"><span class="label">hippocampus</span><span>writing</span></a></li>
+      <li><a href="#building" data-region="-0.64,-0.14"><span class="label">prefrontal cortex</span><span>building &amp; teaching</span></a></li>
+      <li><a href="#timing" data-region="0.5,0.38"><span class="label">cerebellum</span><span>everything else</span></a></li>
+    </ul>
   </div>
-  <div class="hint">move to excite · click to fire</div>
+  <div class="hint label">move to excite · click to fire · hover a region</div>
 </header>
 
+<div class="page">
 <main>
-  <section id="research">
-    <h2>Research</h2>
 
-    <div class="item">
-      <h3>Stanford Speech and Social Neuroscience Lab</h3>
-      <div class="meta">Student intern · Oct 2025 – present</div>
-      <ul>
-        <li>Developing the Functional Connectivity Index, a speech-based diagnostic measure meant to generalize across populations and neurological disorders.</li>
-        <li>Building a multimodal pipeline that fuses audio and transcript features to predict clinical scores (ADOS, CASL), checked with canonical correlation analysis and ablations.</li>
-        <li>Recruiting and interviewing participants, building the REDCap data pipeline, and writing IRB protocols and grant proposals.</li>
-      </ul>
+  <section id="speech" data-region="-0.45,-0.02" data-label="Broca's area · speech">
+    <div class="head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2M6 8.5v7M9 5v14M12 8v8M15 3v18M18 8.5v7M21 10.5v3"/></svg>
+      <div><span class="label">01 · Broca's area</span><h2>Speech</h2></div>
+    </div>
+    <p class="lede">Most of my research asks what someone's speech says about their brain: who has aphasia and how severe it is, how autistic kids talk with clinicians, and which variant of a dementia a patient has.</p>
+
+    <div class="entry">
+      <h3>Notes and scans, together</h3>
+      <div class="label">UCSF NeuroAI Lab · RISE intern · 2025</div>
+      <p>Primary progressive aphasia comes in three variants that are hard to tell apart. I trained a CLIP-style model that pulls a patient's clinical notes and MRI into the same space. It separated the variants better than the scan alone. I was the only high schooler among the 20 RISE interns, most of whom were medical students. I also built speech-quality agents for the Memory and Aging Center's diagnostic copilot. <a href="https://github.com/Sreekar0919/ppa-multimodal-clip">code</a></p>
+      <figure>
+        <div class="bars" role="img" aria-label="Mean AUC: MRI alone 0.69, clinical notes plus MRI 0.78">
+          <span class="small">MRI alone</span><span class="bar"><i style="width:69%"></i></span><span class="small">.69</span>
+          <span class="small">notes + MRI</span><span class="bar hi"><i style="width:78%"></i></span><span class="small">.78</span>
+        </div>
+        <figcaption class="label">mean AUC separating PPA variants</figcaption>
+      </figure>
     </div>
 
-    <div class="item">
-      <h3>UCSF NeuroAI Lab</h3>
-      <div class="meta">RISE program intern (1 of 20) · Jun 2025 – Jan 2026</div>
-      <ul>
-        <li>Trained a CLIP-style contrastive model aligning clinical notes with MRI embeddings to separate primary progressive aphasia variants (0.78 mean AUC vs. 0.69 for MRI alone). <a href="https://github.com/Sreekar0919/ppa-multimodal-clip">code</a></li>
-        <li>Contributed to MAC Copilot, the Memory and Aging Center's agentic system for multimodal diagnosis, and helped test vCDR, a patient-onboarding voice agent.</li>
-        <li>Shadowed clinicians in the Departments of Neurology and Radiology.</li>
-      </ul>
+    <div class="entry">
+      <h3>Reading aphasia from a transcript</h3>
+      <div class="label">Boston University · Center for Brain Recovery · 2024–25</div>
+      <p>A language model that reads a transcript of someone with aphasia, names the type, and estimates severity on the Western Aphasia Battery. It was tested on 61 patients, and a first-author paper is in progress. I also wrote the lab's Python neuroimaging pipeline. <a href="https://github.com/Sreekar0919/AphasiaLLMDiagnosticTool">code</a></p>
     </div>
 
-    <div class="item">
-      <h3>Boston University, Center for Brain Recovery</h3>
-      <div class="meta">Visiting research assistant · May 2024 – Oct 2025</div>
-      <ul>
-        <li>Built an LLM-based framework for aphasia diagnosis across 61 patients: 85.25% classification accuracy and WAB severity estimation at R² = 0.91 (RMSE 5.42). <a href="https://github.com/Sreekar0919/AphasiaLLMDiagnosticTool">code</a></li>
-        <li>Wrote neuroimaging pipelines and functional connectivity analyses linking clinical measures to brain structure. <a href="https://github.com/Sreekar0919/fmri-language-connectivity">code</a></li>
-      </ul>
+    <div class="entry">
+      <h3>Speech in autism</h3>
+      <div class="label">Stanford Speech and Social Neuroscience Lab · 2025–</div>
+      <p>I adapted a speech-analysis tool I wrote in high school for the lab's Autism Speaker Study, and I'm working toward a speech-based diagnostic measure that holds up across populations.</p>
     </div>
 
-    <div class="item">
-      <h3>Independent research: aphasia recovery modeling</h3>
-      <div class="meta">Apr 2023 – Apr 2025</div>
-      <ul>
-        <li>Trained a demographic-conditioned VAE that generates functional connectivity without a new fMRI scan; recovery predictions reached 13-point RMSE on the 100-point WAB-AQ, with generated connectivity contributing about 25% of predictive power. <a href="https://github.com/Sreekar0919/aphasia-neuroimaging-ml">code</a></li>
-        <li>Applied language models to aphasic speech across languages to map how symptoms vary.</li>
-      </ul>
+    <div class="entry">
+      <h3>Aphasia across languages</h3>
+      <div class="label">independent · 2023–25</div>
+      <p>How do aphasia symptoms change from one language to another? I used language models to compare them, and trained a model that predicts resting-state brain connectivity from demographics, to simulate how recovery might go. <a href="https://github.com/Sreekar0919/aphasia-neuroimaging-ml">code</a></p>
     </div>
 
-    <div class="item">
-      <h3>San José State University</h3>
-      <div class="meta">Research intern · Aug – Dec 2023</div>
-      <ul><li>Designed and ran an EEG experiment (n = 20) on polyrhythmic music and attention.</li></ul>
+    <p class="small">Presented at the Academy of Aphasia, the Cognitive Neuroscience Society, and the American Academy of Neurology, among others. I won the AAN's Neuroscience Research Prize in 2024, one of three nationally.</p>
+  </section>
+
+  <section id="sound" data-region="-0.02,0.2" data-label="auditory cortex · trumpet">
+    <div class="head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h2.5M4.5 10.5h10.5l6-4.5v12l-6-4.5H4.5zM8 10.5V7.5M10.5 10.5V7.5M13 10.5V7.5"/></svg>
+      <div><span class="label">02 · auditory cortex</span><h2>Sound</h2></div>
+    </div>
+    <p class="lede">I play trumpet. I made County Honor Band, led the section my senior year, and played first trumpet in our wind ensemble, philharmonic, and jazz band. The best night was playing Boston Symphony Hall with the Boston Instrumental Festival.</p>
+    <p>Music crossed over into research once: at San José State I ran an EEG study on whether polyrhythmic music changes how well people hold attention (n = 20, ages 15–55).</p>
+
+    <div class="trumpet" id="trumpet" tabindex="0" aria-label="Playable trumpet. Toggle valves, then hold the mouthpiece to play. Keyboard: 1, 2, 3 for valves, space to play.">
+      <div class="valves">
+        <button class="valve" aria-pressed="false">1</button>
+        <button class="valve" aria-pressed="false">2</button>
+        <button class="valve" aria-pressed="false">3</button>
+      </div>
+      <button class="blow">hold to play</button>
+      <span class="note label" aria-live="polite"></span>
+    </div>
+    <p class="label">real fingerings: try none, then 2, 1, 1+2, 2+3, 1+3, 1+2+3 for a descending scale</p>
+  </section>
+
+  <section id="memory" data-region="-0.2,0.3" data-label="hippocampus · writing">
+    <div class="head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3.5C13 4.5 8 9.5 6 16.5L4 20l3.5-2C14.5 16 19.5 11 20 3.5zM8 16l6.5-6.5"/></svg>
+      <div><span class="label">03 · hippocampus</span><h2>Memory</h2></div>
+    </div>
+    <p class="lede">I write short memoir, mostly about my family and the odd ways we get through things. Two pieces won Scholastic Gold Keys, and one placed in the top 15% of the New York Times 100-Word Memoir contest.</p>
+
+    <article class="memoir">
+      <span class="label">a hundred-word memoir · on a wildfire</span>
+      <p>The sky bruised red, the kind of red that stings. And I just sat. My screen flickered with muted classmates. My parents ripped apart the house, stuffing jeans, cramming socks, tossing our mundane lives into suitcases. What about my Legos? Our grandfather clock, unticking? Would it all burn? I didn't move. Didn't breathe. The fire licked its lips, devouring faded golds and muted browns of the Diablo Range.</p>
+      <p>Then, the inferno retreated, granting a reprieve. The smoke dissipated, threads dissolving into pale sky. Pandemic rhythms resumed their monotone pulse.</p>
+      <p>My seven-year-old sister split the quiet: "I wanted to go to a hotel!"</p>
+    </article>
+
+    <div class="entry">
+      <h3>For the Birds</h3>
+      <p class="small">After a fight with my mom, a mockingbird family nests in our pomelo tree, and I start getting up at 3 a.m. to guard it.</p>
+      <blockquote>I set my alarm for 3 a.m., waking to stand guard every morning.</blockquote>
+    </div>
+    <div class="entry">
+      <h3>Sheared Solidarity</h3>
+      <p class="small">My grandfather vows to shave his head if my dad recovers, and I try to square that with what I believe about science.</p>
+      <blockquote>Maybe that's what life was: a messy intersection of science and belief, data and prayer, fear and hope.</blockquote>
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul class="projects">
-      <li><a href="https://github.com/Sreekar0919/casl-analysis-tool">CASL analysis tool</a> <span>— speech-language analysis for SLPs; used by 12 SLPs across 12 high schools in my district.</span></li>
-      <li><a href="https://github.com/Sreekar0919/inclusiveworld-tutor">InclusiveWorld tutor</a> <span>— Python curriculum and RAG tutor for neurodivergent students, used by 40+ students.</span></li>
-      <li><a href="https://github.com/Sreekar0919/pubmed-clinical-evidence-agent">PubMed evidence agent</a> <span>— checks the claims in a clinical note against the literature.</span></li>
-      <li><a href="https://github.com/Sreekar0919/atrophy-zscore-predictor">Atrophy z-score predictor</a> <span>— predicting regional brain atrophy from clinical notes.</span></li>
-      <li><a href="https://github.com/Sreekar0919/evolnn">Neuroevolution</a> <span>— from-scratch networks evolved to drive simulated cars with ray-cast sensors.</span></li>
-      <li><a href="https://github.com/Sreekar0919/dermnet-skin-classifier">DermNet classifier</a> <span>— skin-condition classification, 65.6% top-1 over 23 classes.</span></li>
-      <li><a href="https://github.com/Sreekar0919/alpha-synuclein-drug-discovery">Alpha-synuclein docking</a> <span>— a docking pipeline and an honest look at why it fails.</span></li>
-      <li><a href="https://github.com/Sreekar0919/senate-trades">Senate trades</a> and <a href="https://github.com/Sreekar0919/wsb-sentiment-trader">WSB sentiment</a> <span>— two trading-signal experiments.</span></li>
+  <section id="building" data-region="-0.64,-0.14" data-label="prefrontal cortex · building">
+    <div class="head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"/></svg>
+      <div><span class="label">04 · prefrontal cortex</span><h2>Building &amp; teaching</h2></div>
+    </div>
+
+    <div class="entry">
+      <h3>A speech tool for my school district</h3>
+      <div class="label">East Side Union High School District · 2024–</div>
+      <p>I worked with a district speech pathologist on a tool that drafts speech analysis and documentation. It now runs at 12 high schools serving 750+ students in speech therapy, giving therapists back time with students. <a href="https://github.com/Sreekar0919/casl-analysis-tool">code</a></p>
+    </div>
+
+    <div class="entry">
+      <h3>Teaching at Inclusive World</h3>
+      <div class="label">peer mentor · 2024–</div>
+      <p>I teach neurodivergent students Scratch, Python and public speaking. I wrote a new Python curriculum and a tutor chatbot that 40+ students use between sessions, and won the 2024 Outstanding Volunteer Award. <a href="https://github.com/Sreekar0919/inclusiveworld-tutor">code</a></p>
+    </div>
+
+    <div class="entry">
+      <h3>Neuroscience Club</h3>
+      <div class="label">president</div>
+      <p>We grew from 10 to 30 members. We started a YouTube interview series with neuroscientists (The Synapse Sessions), co-hosted Neurodiscovery Day with the Bay Area Society for Neuroscience, ran a mental-health program for 60+ elementary students, and held a few brain dissections.</p>
+    </div>
+
+    <h3>Smaller things I've built</h3>
+    <ul class="list">
+      <li><a href="https://github.com/Sreekar0919/evolnn">Neuroevolution</a> <span class="small">· cars with from-scratch neural networks that learn to drive through selection alone</span></li>
+      <li><a href="https://github.com/Sreekar0919/pubmed-clinical-evidence-agent">PubMed evidence agent</a> <span class="small">· checks the claims in a clinical note against the literature</span></li>
+      <li><a href="https://github.com/Sreekar0919/fmri-language-connectivity">fMRI connectivity</a> <span class="small">· my first neuroimaging pipeline</span></li>
+      <li><a href="https://github.com/Sreekar0919/dermnet-skin-classifier">DermNet classifier</a> <span class="small">· skin conditions, 65.6% top-1 over 23 classes</span></li>
+      <li><a href="https://github.com/Sreekar0919/alpha-synuclein-drug-discovery">Alpha-synuclein docking</a> <span class="small">· a docking pipeline, and an honest look at why it fails</span></li>
+      <li><a href="https://github.com/Sreekar0919/senate-trades">Senate trades</a> &amp; <a href="https://github.com/Sreekar0919/wsb-sentiment-trader">WSB sentiment</a> <span class="small">· two trading-signal experiments</span></li>
     </ul>
   </section>
 
-  <section id="honors">
-    <h2>Honors</h2>
-    <ul class="plain">
-      <li>American Academy of Neurology Neuroscience Research Prize, 1 of 3 nationwide (2024)</li>
-      <li>Junior Science and Humanities Symposium (NorCal), first place in Medicine and Health, top 10 overall (2025)</li>
-      <li>California Science &amp; Engineering Fair, second place in Behavioral Sciences (2024)</li>
-      <li>Synopsys Science Fair, Grand Award alternate and two category awards (2024)</li>
+  <section id="timing" data-region="0.5,0.38" data-label="cerebellum · everything else">
+    <div class="head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.5" cy="9.5" r="6"/><path d="M13.8 13.8l5.5 5.5"/><circle cx="19" cy="5.5" r="1.6"/></svg>
+      <div><span class="label">05 · cerebellum</span><h2>Everything else</h2></div>
+    </div>
+    <ul class="list">
+      <li><span class="label">table tennis</span>President of the Table Tennis Club. We run monthly tournaments and clinics.</li>
+      <li><span class="label">French</span>Gold medal in the Grand Concours, top 3 nationally (2023).</li>
+      <li><span class="label">science fairs</span>First in Medicine &amp; Health at the NorCal JSHS. Second at the California State Science Fair. Synopsys Grand Prize alternate.</li>
+      <li><span class="label">also</span>FIRST Robotics, Academic Decathlon, a Science National Honor Society treasurer who ran 25+ hands-on experiments for elementary schoolers, and a few weeks of guarding a mockingbird nest at 3 a.m.</li>
     </ul>
   </section>
 
-  <section id="talks">
-    <h2>Presentations</h2>
-    <p>Academy of Aphasia (2025) · Cognitive Neuroscience Society (2025) · UCSF Radiology Summer Intern Conference (2025) · American Academy of Neurology (2024) · Stanford Neuroscience Virtual Forum (2024) · NCUR (2024) · SCCUR (2023)</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><a href="mailto:sreekar.baddepudi@gmail.com">sreekar.baddepudi@gmail.com</a> · <a href="https://github.com/Sreekar0919">github.com/Sreekar0919</a></p>
-  </section>
-
-  <footer>San José, California</footer>
+  <footer id="contact">
+    <p><a href="mailto:sreekar.baddepudi@gmail.com">sreekar.baddepudi@gmail.com</a> · <a href="https://github.com/Sreekar0919">GitHub</a></p>
+    <p class="label">San José, California</p>
+  </footer>
 </main>
 
-<script src="brain.js"></script>
+<aside aria-label="Brain map of this page">
+  <div class="mapbox">
+    <svg id="minimap" viewBox="-95 -66 190 150"></svg>
+    <span id="minimap-label" class="label"></span>
+  </div>
+</aside>
+</div>
+
+<script src="brain.js?v=2"></script>
+<script src="site.js?v=2"></script>
 </body>
 </html>

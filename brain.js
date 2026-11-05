@@ -163,4 +163,14 @@
 
   readColors(); build();
   if (still) draw(); else requestAnimationFrame(loop);
+
+  // used by site.js: the minimap reuses the shape, region links fire their part of the brain
+  window.brain = {
+    points: () => nodes.map(n => [n.ux, n.uy]),
+    links: () => edges,
+    excite(ux, uy, radius = 0.11) {
+      nodes.forEach((n, i) => { if (Math.hypot(n.ux - ux, n.uy - uy) < radius) fire(i); });
+      if (still) draw();
+    },
+  };
 })();
