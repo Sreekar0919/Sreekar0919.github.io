@@ -44,9 +44,9 @@
     w = canvas.clientWidth; h = canvas.clientHeight;
     canvas.width = w * dpr; canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const wide = w > 760;
-    scale = Math.min(w / (wide ? 2.6 : 2.1), h / 1.7);
-    const ox = w * (wide ? 0.64 : 0.5), oy = h * (wide ? 0.48 : 0.36);
+    // the canvas has its own box now, so just center the brain in it
+    scale = Math.min(w / 1.95, h / 1.4);
+    const ox = w * 0.5, oy = h * 0.46;
 
     // rejection-sample points with a minimum spacing so the shape reads evenly
     nodes = [];
@@ -164,11 +164,9 @@
   readColors(); build();
   if (still) draw(); else requestAnimationFrame(loop);
 
-  // used by site.js: the minimap reuses the shape, region links fire their part of the brain
+  // used by site.js: switching tabs fires that tab's region
   window.brain = {
-    points: () => nodes.map(n => [n.ux, n.uy]),
-    links: () => edges,
-    excite(ux, uy, radius = 0.11) {
+    excite(ux, uy, radius = 0.13) {
       nodes.forEach((n, i) => { if (Math.hypot(n.ux - ux, n.uy - uy) < radius) fire(i); });
       if (still) draw();
     },
