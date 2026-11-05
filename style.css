@@ -21,9 +21,8 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 [role="tablist"] { display: flex; flex-direction: column; align-items: flex-start; gap: .15rem; }
 [role="tab"] { all: unset; cursor: pointer; display: flex; align-items: baseline; gap: .8rem; padding: .1rem 0; }
 [role="tab"] .name { color: var(--muted); border-bottom: 1px solid transparent; }
-[role="tab"] .mono { opacity: .5; transition: opacity .2s; }
 [role="tab"]:hover .name, [role="tab"][aria-selected="true"] .name { color: var(--ink); border-bottom-color: var(--accent); }
-[role="tab"]:hover .mono, [role="tab"][aria-selected="true"] .mono { opacity: 1; }
+.side h1 a { text-decoration: none; }
 [role="tab"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 main { padding: 12vh 6vw 6rem 2vw; max-width: 44rem; }
@@ -84,6 +83,5 @@ details > p, details > ul { margin-top: .6rem; }
   .hint { display: none; }
   [role="tablist"] { flex-direction: row; flex-wrap: wrap; gap: .4rem 1.1rem; padding-bottom: .8rem;
                      border-bottom: 1px solid var(--rule); }
-  [role="tab"] .mono { display: none; }
   main { padding: 2rem 1.25rem 5rem; }
 }

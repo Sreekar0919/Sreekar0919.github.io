@@ -3,18 +3,28 @@
   const tabs = [...document.querySelectorAll('[role="tab"]')];
   const panels = tabs.map(t => document.getElementById(t.getAttribute("aria-controls")));
 
+  // i = -1 is the intro: no tab open, nothing on the right, no region circled
   function open(i, { focus = false, fire = true } = {}) {
     tabs.forEach((t, j) => {
       const on = i === j;
       t.setAttribute("aria-selected", on);
-      t.tabIndex = on ? 0 : -1;
+      t.tabIndex = on || (i < 0 && j === 0) ? 0 : -1;
       panels[j].hidden = !on;
     });
+    document.body.classList.toggle("intro", i < 0);
+    if (i < 0) {
+      history.replaceState(null, "", location.pathname + location.search);
+      window.brain.focus(null);
+      return;
+    }
     if (focus) tabs[i].focus();
     history.replaceState(null, "", `#${tabs[i].dataset.key}`);
-    window.brain.focus(...regionOf(tabs[i]), tabs[i].querySelector(".mono").textContent);
+    window.brain.focus(...regionOf(tabs[i]), tabs[i].dataset.label);
     if (fire) window.brain.excite(...regionOf(tabs[i]));
   }
+
+  // the name goes back to the intro
+  document.querySelector(".side h1 a").addEventListener("click", e => { e.preventDefault(); open(-1); });
 
   const regionOf = t => t.dataset.region.split(",").map(Number);
 
@@ -47,8 +57,8 @@
     if (e.key === "End") { e.preventDefault(); open(tabs.length - 1, { focus: true }); }
   });
 
-  const start = tabs.findIndex(t => `#${t.dataset.key}` === location.hash);
-  open(Math.max(0, start), { fire: false });
+  // a link like #music opens that tab; otherwise the site starts on the intro
+  open(tabs.findIndex(t => `#${t.dataset.key}` === location.hash), { fire: false });
 })();
 
 // Trumpet: three valves + hold to play. Valve combinations follow the real fingering chart

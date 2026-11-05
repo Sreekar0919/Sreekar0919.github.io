@@ -187,7 +187,7 @@
   // used by site.js: switching tabs fires that tab's region and circles it
   window.brain = {
     focus(ux, uy, label = "", r = 0.16) {
-      focus = { ux, uy, r, label, since: performance.now() };
+      focus = ux == null ? null : { ux, uy, r, label, since: performance.now() };
       if (still) draw();
     },
     excite(ux, uy, radius = 0.13) {
