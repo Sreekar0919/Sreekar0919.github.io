@@ -12,6 +12,7 @@
     });
     if (focus) tabs[i].focus();
     history.replaceState(null, "", `#${tabs[i].dataset.key}`);
+    window.brain.focus(...regionOf(tabs[i]), tabs[i].querySelector(".mono").textContent);
     if (fire) window.brain.excite(...regionOf(tabs[i]));
   }
 

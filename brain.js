@@ -30,7 +30,8 @@
   // tuned headless: ~14 of 450 cells lit on average, peaks ~30, never runs away
   const P_TRANSMIT = 0.42, REFRACTORY = 0.9, SPONTANEOUS = 4; // per second
 
-  let nodes = [], edges = [], pulses = [], w = 0, h = 0, scale = 1;
+  let nodes = [], edges = [], pulses = [], w = 0, h = 0, scale = 1, ox = 0, oy = 0;
+  let focus = null; // the open tab's region: { ux, uy, r, label, since }
   const mouse = { x: -1e4, y: -1e4 };
   let colors = {};
 
@@ -46,7 +47,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     // the canvas has its own box now, so just center the brain in it
     scale = Math.min(w / 1.95, h / 1.4);
-    const ox = w * 0.5, oy = h * 0.46;
+    ox = w * 0.5; oy = h * 0.46;
 
     // rejection-sample points with a minimum spacing so the shape reads evenly
     nodes = [];
@@ -134,12 +135,31 @@
     }
     ctx.stroke();
 
+    const inFocus = n => focus && Math.hypot(n.ux - focus.ux, n.uy - focus.uy) < focus.r;
     for (const n of nodes) {
-      ctx.globalAlpha = 0.28 + 0.72 * n.glow;
-      ctx.fillStyle = n.glow > 0.08 ? colors.accent : colors.ink;
-      ctx.beginPath(); ctx.arc(n.x, n.y, 1.3 + 1.6 * n.glow, 0, Math.PI * 2); ctx.fill();
+      const lit = inFocus(n);
+      ctx.globalAlpha = lit ? Math.max(0.8, n.glow) : 0.28 + 0.72 * n.glow;
+      ctx.fillStyle = lit || n.glow > 0.08 ? colors.accent : colors.ink;
+      ctx.beginPath(); ctx.arc(n.x, n.y, (lit ? 1.9 : 1.3) + 1.6 * n.glow, 0, Math.PI * 2); ctx.fill();
     }
+    if (focus) drawRing();
     ctx.globalAlpha = 1;
+  }
+
+  // dashed circle around the open tab's region, eased in over ~0.4 s, with its name beside it
+  function drawRing() {
+    const grow = still ? 1 : Math.min(1, (performance.now() - focus.since) / 400);
+    const ease = 1 - (1 - grow) ** 3;
+    const cx = ox + focus.ux * scale, cy = oy + focus.uy * scale, r = focus.r * scale * (0.6 + 0.4 * ease);
+    ctx.globalAlpha = 0.7 * ease;
+    ctx.strokeStyle = colors.accent; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+    ctx.setLineDash([]);
+    if (!focus.label) return;
+    ctx.font = "11px ui-monospace, Menlo, monospace"; ctx.fillStyle = colors.accent;
+    const tw = ctx.measureText(focus.label).width;
+    const tx = cx + r + 8 + tw < w ? cx + r + 8 : cx - r - 8 - tw;
+    ctx.fillText(focus.label, tx, cy - r * 0.6);
   }
 
   let last = performance.now();
@@ -164,8 +184,12 @@
   readColors(); build();
   if (still) draw(); else requestAnimationFrame(loop);
 
-  // used by site.js: switching tabs fires that tab's region
+  // used by site.js: switching tabs fires that tab's region and circles it
   window.brain = {
+    focus(ux, uy, label = "", r = 0.16) {
+      focus = { ux, uy, r, label, since: performance.now() };
+      if (still) draw();
+    },
     excite(ux, uy, radius = 0.13) {
       nodes.forEach((n, i) => { if (Math.hypot(n.ux - ux, n.uy - uy) < radius) fire(i); });
       if (still) draw();
