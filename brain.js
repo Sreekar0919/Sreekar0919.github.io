@@ -54,7 +54,7 @@
     if (intro && w > 760) { scale = Math.min(w / 2.5, h / 1.45); ox = w * 0.62; oy = h * 0.5; }
     else if (intro) { scale = Math.min(w / 1.95, h / 1.4); ox = w * 0.5; oy = h * 0.7; }
     else { scale = Math.min(w / 1.95, h / 1.4); ox = w * 0.5; oy = h * 0.46; }
-    k = intro ? Math.max(1.15, Math.min(1.5, scale / 300)) : 1;
+    k = intro ? Math.max(1.05, Math.min(1.25, scale / 360)) : 1;
 
     // rejection-sample points with a minimum spacing so the shape reads evenly
     nodes = [];
@@ -113,9 +113,9 @@
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
       n.rest = Math.max(0, n.rest - dt);
-      n.glow *= Math.exp(-dt * (intro ? 2.2 : 2.6));
+      n.glow *= Math.exp(-dt * (intro ? 2.4 : 2.6));
       const reach = 80 * k, d = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-      if (d < reach && Math.random() < dt * (intro ? 3 : 2.2) * (1 - d / reach)) fire(i);
+      if (d < reach && Math.random() < dt * (intro ? 2.6 : 2.2) * (1 - d / reach)) fire(i);
     }
 
     pulses = pulses.filter(p => {
@@ -134,7 +134,7 @@
     for (const [i, j] of edges) { ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); }
     ctx.stroke();
 
-    ctx.strokeStyle = colors.accent; ctx.globalAlpha = intro ? 0.7 : 0.55; ctx.lineWidth = intro ? 1.2 : 1;
+    ctx.strokeStyle = colors.accent; ctx.globalAlpha = intro ? 0.62 : 0.55; ctx.lineWidth = intro ? 1.1 : 1;
     ctx.beginPath();
     for (const p of pulses) {
       const a = nodes[p.a], b = nodes[p.b], f = p.t / p.dur, g = Math.max(0, f - 0.35);
@@ -147,14 +147,14 @@
     ctx.fillStyle = colors.accent;
     for (const n of nodes) {
       if (!intro || n.glow < 0.2) continue;
-      ctx.globalAlpha = 0.1 * n.glow;
+      ctx.globalAlpha = 0.05 * n.glow;
       ctx.beginPath(); ctx.arc(n.x, n.y, 3 + 5 * n.glow, 0, Math.PI * 2); ctx.fill();
     }
 
     ctx.strokeStyle = colors.accent; ctx.lineWidth = 1.2;
     for (const r of ripples) {
       const f = r.t / 0.7;
-      ctx.globalAlpha = 0.25 * (1 - f);
+      ctx.globalAlpha = 0.15 * (1 - f);
       ctx.beginPath(); ctx.arc(r.x, r.y, r.r * (0.4 + 0.8 * f), 0, Math.PI * 2); ctx.stroke();
     }
 
