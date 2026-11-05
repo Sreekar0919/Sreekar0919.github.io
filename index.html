@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sreekar Baddepudi</title>
+<meta name="description" content="Sreekar Baddepudi. Neuroscience and machine learning research on speech, aphasia and neuroimaging.">
+<style>
+  :root { --bg: #faf9f6; --ink: #1c1c1a; --muted: #6e6c66; --rule: #e3e0d8; --accent: #b0532c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151514; --ink: #e8e6e1; --muted: #9a978f; --rule: #2c2b28; --accent: #e08257; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.6 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+  .hero { position: relative; height: 100vh; min-height: 520px; overflow: hidden; }
+  #brain { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+  .intro { position: absolute; left: 7vw; top: 50%; transform: translateY(-50%); max-width: 22rem; pointer-events: none; }
+  .intro a { pointer-events: auto; }
+  .intro h1 { font-size: 1.7rem; font-weight: 500; margin: 0 0 .4rem; letter-spacing: -.01em; }
+  .intro p { margin: 0 0 1rem; color: var(--muted); }
+  .intro nav a { margin-right: 1rem; font-size: .95rem; }
+  .hint { position: absolute; bottom: 1.4rem; left: 7vw; font: 12px/1 ui-monospace, Menlo, monospace; color: var(--muted); }
+  @media (max-width: 760px) {
+    .intro { top: auto; bottom: 3.5rem; transform: none; }
+    .hint { bottom: 1rem; }
+  }
+
+  main { max-width: 42rem; margin: 0 auto; padding: 4rem 1.25rem 6rem; }
+  section { margin-bottom: 3.5rem; }
+  h2 { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+       margin: 0 0 1.2rem; padding-bottom: .4rem; border-bottom: 1px solid var(--rule); }
+  .item { margin-bottom: 1.6rem; }
+  .item h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+  .meta { color: var(--muted); font-size: .9rem; margin: .1rem 0 .4rem; }
+  ul { margin: .3rem 0 0; padding-left: 1.1rem; }
+  li { margin-bottom: .25rem; }
+  .projects li { list-style: none; margin-left: -1.1rem; margin-bottom: .6rem; }
+  .projects span { color: var(--muted); }
+  .plain { list-style: none; padding: 0; }
+  footer { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="brain" aria-label="Animated network of neurons in the shape of a brain"></canvas>
+  <div class="intro">
+    <h1>Sreekar Baddepudi</h1>
+    <p>Symbolic Systems (Neuroscience) at Stanford. I work on speech, aphasia and brain imaging, mostly with machine learning.</p>
+    <nav><a href="#research">Research</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+  </div>
+  <div class="hint">move to excite · click to fire</div>
+</header>
+
+<main>
+  <section id="research">
+    <h2>Research</h2>
+
+    <div class="item">
+      <h3>Stanford Speech and Social Neuroscience Lab</h3>
+      <div class="meta">Student intern · Oct 2025 – present</div>
+      <ul>
+        <li>Developing the Functional Connectivity Index, a speech-based diagnostic measure meant to generalize across populations and neurological disorders.</li>
+        <li>Building a multimodal pipeline that fuses audio and transcript features to predict clinical scores (ADOS, CASL), checked with canonical correlation analysis and ablations.</li>
+        <li>Recruiting and interviewing participants, building the REDCap data pipeline, and writing IRB protocols and grant proposals.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>UCSF NeuroAI Lab</h3>
+      <div class="meta">RISE program intern (1 of 20) · Jun 2025 – Jan 2026</div>
+      <ul>
+        <li>Trained a CLIP-style contrastive model aligning clinical notes with MRI embeddings to separate primary progressive aphasia variants (0.78 mean AUC vs. 0.69 for MRI alone). <a href="https://github.com/Sreekar0919/ppa-multimodal-clip">code</a></li>
+        <li>Contributed to MAC Copilot, the Memory and Aging Center's agentic system for multimodal diagnosis, and helped test vCDR, a patient-onboarding voice agent.</li>
+        <li>Shadowed clinicians in the Departments of Neurology and Radiology.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Boston University, Center for Brain Recovery</h3>
+      <div class="meta">Visiting research assistant · May 2024 – Oct 2025</div>
+      <ul>
+        <li>Built an LLM-based framework for aphasia diagnosis across 61 patients: 85.25% classification accuracy and WAB severity estimation at R² = 0.91 (RMSE 5.42). <a href="https://github.com/Sreekar0919/AphasiaLLMDiagnosticTool">code</a></li>
+        <li>Wrote neuroimaging pipelines and functional connectivity analyses linking clinical measures to brain structure. <a href="https://github.com/Sreekar0919/fmri-language-connectivity">code</a></li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Independent research: aphasia recovery modeling</h3>
+      <div class="meta">Apr 2023 – Apr 2025</div>
+      <ul>
+        <li>Trained a demographic-conditioned VAE that generates functional connectivity without a new fMRI scan; recovery predictions reached 13-point RMSE on the 100-point WAB-AQ, with generated connectivity contributing about 25% of predictive power. <a href="https://github.com/Sreekar0919/aphasia-neuroimaging-ml">code</a></li>
+        <li>Applied language models to aphasic speech across languages to map how symptoms vary.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>San José State University</h3>
+      <div class="meta">Research intern · Aug – Dec 2023</div>
+      <ul><li>Designed and ran an EEG experiment (n = 20) on polyrhythmic music and attention.</li></ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul class="projects">
+      <li><a href="https://github.com/Sreekar0919/casl-analysis-tool">CASL analysis tool</a> <span>— speech-language analysis for SLPs; used by 12 SLPs across 12 high schools in my district.</span></li>
+      <li><a href="https://github.com/Sreekar0919/inclusiveworld-tutor">InclusiveWorld tutor</a> <span>— Python curriculum and RAG tutor for neurodivergent students, used by 40+ students.</span></li>
+      <li><a href="https://github.com/Sreekar0919/pubmed-clinical-evidence-agent">PubMed evidence agent</a> <span>— checks the claims in a clinical note against the literature.</span></li>
+      <li><a href="https://github.com/Sreekar0919/atrophy-zscore-predictor">Atrophy z-score predictor</a> <span>— predicting regional brain atrophy from clinical notes.</span></li>
+      <li><a href="https://github.com/Sreekar0919/evolnn">Neuroevolution</a> <span>— from-scratch networks evolved to drive simulated cars with ray-cast sensors.</span></li>
+      <li><a href="https://github.com/Sreekar0919/dermnet-skin-classifier">DermNet classifier</a> <span>— skin-condition classification, 65.6% top-1 over 23 classes.</span></li>
+      <li><a href="https://github.com/Sreekar0919/alpha-synuclein-drug-discovery">Alpha-synuclein docking</a> <span>— a docking pipeline and an honest look at why it fails.</span></li>
+      <li><a href="https://github.com/Sreekar0919/senate-trades">Senate trades</a> and <a href="https://github.com/Sreekar0919/wsb-sentiment-trader">WSB sentiment</a> <span>— two trading-signal experiments.</span></li>
+    </ul>
+  </section>
+
+  <section id="honors">
+    <h2>Honors</h2>
+    <ul class="plain">
+      <li>American Academy of Neurology Neuroscience Research Prize, 1 of 3 nationwide (2024)</li>
+      <li>Junior Science and Humanities Symposium (NorCal), first place in Medicine and Health, top 10 overall (2025)</li>
+      <li>California Science &amp; Engineering Fair, second place in Behavioral Sciences (2024)</li>
+      <li>Synopsys Science Fair, Grand Award alternate and two category awards (2024)</li>
+    </ul>
+  </section>
+
+  <section id="talks">
+    <h2>Presentations</h2>
+    <p>Academy of Aphasia (2025) · Cognitive Neuroscience Society (2025) · UCSF Radiology Summer Intern Conference (2025) · American Academy of Neurology (2024) · Stanford Neuroscience Virtual Forum (2024) · NCUR (2024) · SCCUR (2023)</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><a href="mailto:sreekar.baddepudi@gmail.com">sreekar.baddepudi@gmail.com</a> · <a href="https://github.com/Sreekar0919">github.com/Sreekar0919</a></p>
+  </section>
+
+  <footer>San José, California</footer>
+</main>
+
+<script src="brain.js"></script>
+</body>
+</html>
