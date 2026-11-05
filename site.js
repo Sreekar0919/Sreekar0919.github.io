@@ -12,6 +12,7 @@
       panels[j].hidden = !on;
     });
     document.body.classList.toggle("intro", i < 0);
+    window.brain.relayout(); // the canvas just changed size (full screen <-> side column)
     if (i < 0) {
       history.replaceState(null, "", location.pathname + location.search);
       window.brain.focus(null);

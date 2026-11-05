@@ -23,6 +23,12 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 [role="tab"] .name { color: var(--muted); border-bottom: 1px solid transparent; }
 [role="tab"]:hover .name, [role="tab"][aria-selected="true"] .name { color: var(--ink); border-bottom-color: var(--accent); }
 .side h1 a { text-decoration: none; }
+
+/* intro: the brain fills the screen behind the name, description and tabs */
+body.intro #brain { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; }
+body.intro .side > :not(#brain) { position: relative; z-index: 1; width: fit-content; } /* text boxes hug their text so the brain stays clickable around them */
+body.intro .hint { margin-top: auto; }
+body.intro main { display: none; }
 [role="tab"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 main { padding: 12vh 6vw 6rem 2vw; max-width: 44rem; }

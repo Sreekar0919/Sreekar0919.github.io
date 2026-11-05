@@ -45,9 +45,12 @@
     w = canvas.clientWidth; h = canvas.clientHeight;
     canvas.width = w * dpr; canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    // the canvas has its own box now, so just center the brain in it
-    scale = Math.min(w / 1.95, h / 1.4);
-    ox = w * 0.5; oy = h * 0.46;
+    // on the intro the canvas fills the screen: keep the brain clear of the text on the left
+    // (wide screens) or below it (phones); inside the side column, just center it
+    const intro = document.body.classList.contains("intro");
+    if (intro && w > 760) { scale = Math.min(w / 2.5, h / 1.45); ox = w * 0.62; oy = h * 0.5; }
+    else if (intro) { scale = Math.min(w / 1.95, h / 1.4); ox = w * 0.5; oy = h * 0.7; }
+    else { scale = Math.min(w / 1.95, h / 1.4); ox = w * 0.5; oy = h * 0.46; }
 
     // rejection-sample points with a minimum spacing so the shape reads evenly
     nodes = [];
@@ -177,8 +180,15 @@
     nodes.forEach((n, i) => { if (Math.hypot(n.x - mouse.x, n.y - mouse.y) < 45) fire(i); });
   });
 
+  // re-lay out for the canvas's current box; skips work if the size hasn't actually changed
+  function relayout() {
+    if (canvas.clientWidth === w && canvas.clientHeight === h) return;
+    build();
+    if (focus) nodes.forEach((n, i) => { if (Math.hypot(n.ux - focus.ux, n.uy - focus.uy) < focus.r) fire(i); });
+    if (still) draw();
+  }
   let resizeTimer;
-  addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(build, 150); });
+  new ResizeObserver(() => { clearTimeout(resizeTimer); resizeTimer = setTimeout(relayout, 120); }).observe(canvas);
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readColors);
 
   readColors(); build();
@@ -186,6 +196,7 @@
 
   // used by site.js: switching tabs fires that tab's region and circles it
   window.brain = {
+    relayout, // site.js calls this right after switching between the intro and a tab
     focus(ux, uy, label = "", r = 0.16) {
       focus = ux == null ? null : { ux, uy, r, label, since: performance.now() };
       if (still) draw();
