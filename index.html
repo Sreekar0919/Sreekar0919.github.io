@@ -60,7 +60,8 @@
     <details class="item">
       <summary><span><b>Independent research: aphasia recovery modeling</b></span><span class="meta">Apr 2023 – Apr 2025</span></summary>
       <ul>
-        <li>Trained a demographic-conditioned VAE that generates functional connectivity without a new fMRI scan; recovery predictions reached 13-point RMSE on the 100-point WAB-AQ, with generated connectivity contributing about 25% of predictive power. <a href="https://github.com/Sreekar0919/aphasia-neuroimaging-ml">code</a></li>
+        <li>Built a functional-connectivity pipeline (demographic-conditioned VAE, ANTs registration to MNI space) and re-tested it on held-out patients in 2026. In the Aphasia Recovery Cohort, lesion volume explained 37% of WAB-AQ variance, and adding resting-state connectivity raised it to 42%. <a href="https://github.com/Sreekar0919/aphasia-neuroimaging-ml">code</a></li>
+        <li>Showed that clinical data can't yet stand in for an fMRI scan: generating a patient's connectivity from diagnosis, WAB-AQ and demographics improved on the group-average template by only 1–2.5%.</li>
         <li>Applied language models to aphasic speech across languages to map how symptoms vary.</li>
       </ul>
     </details>
